@@ -41,6 +41,7 @@ FETCH_API_UPDATES_TIMEOUT = int(float(getenv("FETCH_API_UPDATES_TIMEOUT")))
 bot = Snake(
     intents=Intents.GUILDS | Intents.GUILD_MEMBERS,
     sync_interactions=True,
+    fetch_members=True,
 )
 
 
