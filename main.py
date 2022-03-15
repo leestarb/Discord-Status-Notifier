@@ -11,7 +11,7 @@ from loguru import logger
 from dis_snek import Snake, Intents, listen
 from dis_snek import Permissions
 from dis_snek import OptionTypes, InteractionContext, slash_command, slash_option
-from dis_snek import GuildText, ChannelTypes
+from dis_snek import ChannelTypes, GuildText, GuildNews
 from dis_snek import Activity, ActivityType
 from dis_snek import Embed, BrandColors, Timestamp
 from dis_snek import Task, IntervalTrigger
@@ -82,7 +82,7 @@ async def channel_delete(ev: ChannelDelete) -> None:
     "The channel to receive incidents",
     required=True,
     opt_type=OptionTypes.CHANNEL,
-    channel_types=[ChannelTypes.GUILD_TEXT],
+    channel_types=[ChannelTypes.GUILD_TEXT, ChannelTypes.GUILD_NEWS],
 )
 async def set_channel(ctx: InteractionContext, channel: GuildText) -> None:
     if not ctx.author.has_permission(Permissions.MANAGE_CHANNELS):
@@ -253,7 +253,7 @@ async def fetch_incidents() -> None:
 
                     channel = await bot.cache.fetch_channel(channel_id)
 
-                    if is_valid := isinstance(channel, GuildText):
+                    if is_valid := isinstance(channel, (GuildText, GuildNews)):
                         perms = channel.guild.me.channel_permissions(channel)
                         is_valid = (
                             perms & Permissions.VIEW_CHANNEL
