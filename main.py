@@ -85,7 +85,7 @@ async def channel_delete(ev: ChannelDelete) -> None:
     opt_type=OptionTypes.CHANNEL,
     channel_types=[ChannelTypes.GUILD_TEXT, ChannelTypes.GUILD_NEWS],
 )
-async def set_channel(ctx: InteractionContext, channel: GuildText) -> None:
+async def set_channel(ctx: InteractionContext, channel: GuildText | GuildNews) -> None:
     if not ctx.author.has_permission(Permissions.MANAGE_CHANNELS):
         await ctx.send("You must have the `MANAGE CHANNELS` permission to operate!", ephemeral=True)
         return
