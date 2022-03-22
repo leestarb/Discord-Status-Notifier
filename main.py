@@ -3,6 +3,7 @@
 import logging
 from asyncio import create_task
 from os import getenv
+from sys import stdout
 
 import orjson
 from aiohttp import ClientSession
@@ -24,6 +25,11 @@ import exceptions
 logging.basicConfig(filename="other.log", encoding="utf-8", level=logging.INFO)
 
 logger.remove()
+logger.add(
+    stdout,
+    format="{time:MM.DD HH:m A ZZ} | {level.no} | {module}:{line} | {message}",
+    level="DEBUG",
+)
 logger.add(
     "main.log",
     format="{time:MM.DD HH:m A ZZ} | {level.icon} ({level.no}) | {module}:{line} | {message}",
