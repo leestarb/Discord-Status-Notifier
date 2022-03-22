@@ -227,7 +227,7 @@ async def fetch_incidents() -> None:
             if NEW_CHANNELS_CACHE or not LAST_INCIDENT_CACHE[1]:
                 need_updates_fetch = True
             else:
-                need_updates_fetch = updates[-1]["id"] != LAST_INCIDENT_CACHE[1][-1]
+                need_updates_fetch = updates[-1]["id"] not in LAST_INCIDENT_CACHE[1]
 
         if need_updates_fetch:
 
