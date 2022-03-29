@@ -1,5 +1,8 @@
 # Status Notifier
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![black workflow](https://github.com/leestarb/Discord-Status-Notifier/actions/workflows/black.yml/badge.svg)](https://github.com/leestarb/Discord-Status-Notifier/actions/workflows/black.yml)
+
 [Status Notifier](https://discord.com/api/oauth2/authorize?client_id=927460566447046687&permissions=281600&scope=bot%20applications.commands) is a Discord bot to [notify users and developers](#Notifications-preview) about Discord [status](https://discordstatus.com/) changes!
 
 ## How to setup
